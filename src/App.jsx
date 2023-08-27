@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
 
-function App() {
-  const [count, setCount] = useState(0)
+import Menu from "./components/Menu";
+import SearchResultsDisplay from "./components/SearchResultsDisplay";
+import Search from "./components/Search";
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+export default function App() {
+
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const [searching, setSearching] = React.useState(false);
+    const [searchResults, setSearchResults] = React.useState([]);
+
+    function handleChange(event)
+    {
+        setSearchTerm(event.target.value);
+    }
+
+    function onSearch()
+    {
+        setSearching(true)
+        setTimeout(() => { 
+            setSearching(false)
+        }, 1000)
+    }
+
+    React.useEffect(() => {
+        if (searchTerm)
+        {
+            fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${searchTerm}`)
+            .then(res => res.json())
+            .then(data => {
+                setSearchResults(data);
+            })
+        }
+    }, [searching])
+
+    
+    return (
+        <div className="container">
+            <Menu />
+            <Search 
+                searchTerm={searchTerm} 
+                onSearch={handleChange}
+                search={onSearch}
+            />
+            {searchResults && <SearchResultsDisplay data={searchResults}/>}
+        </div>
+    )
 }
-
-export default App

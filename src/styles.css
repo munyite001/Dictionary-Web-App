@@ -1,0 +1,246 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body, .root {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+header {
+    width: 100%;
+    padding: 2rem 1rem 1rem;
+    display: flex;
+}
+
+
+nav {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    margin: 0 1rem 0 auto;
+}
+
+.logo {
+    width: 3rem;
+}
+
+.logo img {
+    width: 100%;
+}
+
+/* FONT DROP DOWN MENU */
+.font-dropdown {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+.font-dropdown .display {
+    display: flex;
+    align-items: center;
+}
+
+.display p {
+    font-size: 1.7rem;
+    font-weight: 700;
+
+}
+
+.display i {
+    font-size: 1.7rem;
+    margin: 0 1rem;
+    color: blueviolet;
+}
+
+.nav-container .line {
+    width: 2px;
+    height: 2rem;
+    background-color: #ccc;
+    margin: 0 1rem;
+}
+
+
+input[type="range"] {
+    width: 2rem;
+    margin: 0 1rem;
+    --webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: #4a4c4e;
+    height: 1rem;
+    border-radius: 10px;
+  }
+  
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid #ccc;
+  }
+
+
+.theme-icon {
+    font-size: 1.5rem;
+    color: #ccc;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+    height: 3rem;
+    border-radius: 5px;
+    background-color: #eee;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 1px 1px #ccc;
+}
+
+.search-container:focus-within {
+    box-shadow: 0 0 1px 1px blueviolet;
+}
+
+.search-container input {
+    width: 80%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0 1rem;
+}
+
+.search-container i {
+    font-size: 1.5rem;
+    margin: 0 auto;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.search-results-container {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.word-display {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.word h1 {
+    font-size: 45px;
+}
+
+.word h4 {
+    font-size: 26px;
+    color: rgba(206, 95, 240, 0.823);
+}
+
+.audio {
+    background-color: rgba(206, 95, 240, 0.7);
+    width: 3rem;
+    height: 3rem;
+    display: grid;
+    place-items: center;
+    margin: 0 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.audio i {
+    color: blueviolet;
+
+}
+
+.meaning {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.meaning .title {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+
+.title {
+    font-style: italic;
+    font-weight: 700;
+}
+
+.title hr {
+    width: 80%;
+    margin: 0 2rem;
+}
+
+.meaning h4 {
+    margin: 0.5rem 0;
+}
+
+.meaning li {
+    margin: 1rem 0;
+}
+
+li::marker {
+    color: blueviolet;
+}
+
+.empty {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+    height: 50vh;
+}
+
+.empty h5 {
+    font-size: 20px;
+    font-style: oblique;
+    margin: 1rem;
+}
+
+.empty .image-container {
+    width: 7rem;
+    
+}
+
+.empty .image-container img {
+    width: 100%;
+    margin: 2rem 0;
+}
