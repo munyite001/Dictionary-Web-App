@@ -10,6 +10,7 @@ export default function App() {
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searching, setSearching] = React.useState(false);
     const [searchResults, setSearchResults] = React.useState([]);
+    const [theme, setTheme] = React.useState("light");
 
     function handleChange(event)
     {
@@ -22,6 +23,17 @@ export default function App() {
         setTimeout(() => { 
             setSearching(false)
         }, 1000)
+    }
+
+    const themes = {
+        light: {
+            "background": "#fff",
+            "color": "#000"
+        },
+        dark: {
+            "background": "#000",
+            "color": "#fff"
+        }
     }
 
     React.useEffect(() => {
@@ -37,12 +49,14 @@ export default function App() {
 
     
     return (
-        <div className="container">
-            <Menu />
+        <div className="container" style={themes[theme]}>
+            <Menu theme={theme} setTheme={setTheme}/>
             <Search 
                 searchTerm={searchTerm} 
                 onSearch={handleChange}
                 search={onSearch}
+                theme={theme}
+                themes={themes}
             />
             {searchResults && <SearchResultsDisplay data={searchResults}/>}
         </div>

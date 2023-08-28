@@ -54,7 +54,7 @@ export default function SearchResultsDisplay({ data }) {
             <div className="empty">
                 <h5>Nothing to display</h5>
                 <div className="image-container">
-                    <img src="../../Images/ogre.png" alt="Bored Ogre" />
+                    <img src="../../Images/empty.png" alt="Bored Ogre" />
                 </div>
             </div>
         )
