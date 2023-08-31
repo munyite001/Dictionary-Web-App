@@ -17,7 +17,7 @@ export default function Font({ showDropDown, setShowDropDown, font, setFont, fon
                 <p className="font-name">
                     {font}
                 </p>
-                <i className="fas fa-angle-down"></i>
+                <i className={showDropDown ? "fas fa-angle-up":"fas fa-angle-down"}></i>
             </div>
             {showDropDown && 
                 <ul className="dropdown">
