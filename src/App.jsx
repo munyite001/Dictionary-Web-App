@@ -76,7 +76,7 @@ export default function App() {
                 theme={theme}
                 themes={themes}
             />
-            {searchResults && <SearchResultsDisplay data={searchResults}/>}
+            {searchResults && <SearchResultsDisplay data={searchResults} theme={theme}/>}
         </div>
     )
 }

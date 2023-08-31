@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from "react";
-export default function SearchResultsDisplay({ data }) {
+export default function SearchResultsDisplay({ data, theme }) {
 
     const [isPlaying, setIsPlaying] = React.useState("false");
     const audioElement = new Audio(data.length > 0 && (data[0].phonetics[1]["audio"] || "../../audio/no-audio.mp3"))
@@ -20,7 +20,7 @@ export default function SearchResultsDisplay({ data }) {
                     <h4>{data[0].phonetics[1]["text"]}</h4>
                 </div>
                 <div className="audio" onClick={toggleAudio}>
-                    <i className="fas fa-play"></i>
+                    <i className="fas fa-play" style={{color: theme == "dark" ? "rgb(140, 43, 226)":"rgba(206, 95, 240, 0.7)"}}></i>
                 </div>
                 </div>
                 <div className="meanings">
