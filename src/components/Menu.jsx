@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import Font from "./Font.jsx"
 
-export default function Menu({theme, setTheme}) {
+export default function Menu({theme, setTheme, showDropDown, setShowDropDown, font, setFont, fonts}) {
     function toggleTheme() {
         if (theme === "light")
         {
@@ -19,7 +19,13 @@ export default function Menu({theme, setTheme}) {
                     <img src={theme == "light" ? "../../Images/dict-icon.png":"../../Images/dict-icon-dark.png"} alt="Dictionary web app" />
                 </div>
                 <div className="nav-container">
-                    <Font />
+                    <Font 
+                        showDropDown={showDropDown}
+                        setShowDropDown={setShowDropDown}
+                        font={font}
+                        setFont={setFont}
+                        fonts={fonts}
+                    />
                     <span className="line"></span>
                     <label htmlFor="toggle-theme"></label>
                     <input
@@ -29,7 +35,7 @@ export default function Menu({theme, setTheme}) {
                         name="toggle-theme"
                         value={theme === "light" ? 0 : 1}
                         id="toggle-theme" 
-                        onClick={toggleTheme}
+                        onChange={toggleTheme}
                         />
                         <i className="fas fa-moon theme-icon"
                             style={theme === "light" ? {color: "#aaa"} : {color: "rgba(206, 95, 240, 0.823)"}}

@@ -6,12 +6,15 @@ import SearchResultsDisplay from "./components/SearchResultsDisplay";
 import Search from "./components/Search";
 
 export default function App() {
-
+    const fonts = ["Arial", "Helvetica", "Calibri", "Verdana"];
     const [searchTerm, setSearchTerm] = React.useState("");
     const [searching, setSearching] = React.useState(false);
     const [searchResults, setSearchResults] = React.useState([]);
     const [theme, setTheme] = React.useState("light");
-
+    const [showDropDown, setShowDropDown] = React.useState(false)
+    const [font, setFont] = React.useState(fonts[0])
+    
+      
     function handleChange(event)
     {
         setSearchTerm(event.target.value);
@@ -28,13 +31,22 @@ export default function App() {
     const themes = {
         light: {
             "background": "#fff",
-            "color": "#000"
+            "color": "#000",
+            "fontFamily": {font}
         },
         dark: {
             "background": "#000",
-            "color": "#fff"
+            "color": "#fff",
+            "fontFamily": {font}
         }
     }
+
+    //  Check the prefered color theme by default
+    React.useEffect(() => {
+        if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            setTheme("dark")
+        }
+    },[])
 
     React.useEffect(() => {
         if (searchTerm)
@@ -50,7 +62,15 @@ export default function App() {
     
     return (
         <div className="container" style={themes[theme]}>
-            <Menu theme={theme} setTheme={setTheme}/>
+            <Menu 
+                theme={theme} 
+                setTheme={setTheme}
+                showDropDown={showDropDown}
+                setShowDropDown={setShowDropDown}
+                font={font}
+                setFont={setFont}
+                fonts={fonts}
+            />
             <Search 
                 searchTerm={searchTerm} 
                 onSearch={handleChange}
