@@ -32,12 +32,10 @@ export default function App() {
         light: {
             "background": "#fff",
             "color": "#000",
-            "fontFamily": {font}
         },
         dark: {
             "background": "#000",
             "color": "#fff",
-            "fontFamily": {font}
         }
     }
 
@@ -61,7 +59,7 @@ export default function App() {
 
     
     return (
-        <div className="container" style={themes[theme]}>
+        <div className="container" style={{...themes[theme], fontFamily: font}}>
             <Menu 
                 theme={theme} 
                 setTheme={setTheme}
